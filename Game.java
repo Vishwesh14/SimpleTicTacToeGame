@@ -42,7 +42,7 @@ class TicTacToeGame {
                 continue;
             }
             if (checkVictory(((playerChance == 1) ? 'X' : 'O'))) {
-                System.out.println("player " + ((playerChance == 1) ? 'X' : 'O') + " has won.\n do you want to play again ? ('y' or 'n')");
+                System.out.print("player " + ((playerChance == 1) ? 'X' : 'O') + " has won.\ndo you want to play again ? ('y' or 'n') : ");
                 char command  = Character.toLowerCase(Input.next().charAt(0));
                 if (command == 'y'){
                     playerChance = 1;
