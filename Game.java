@@ -4,21 +4,18 @@ import java.util.Scanner;
 class TicTacToeGame {
     private Scanner Input = new Scanner(System.in);
     private char[] board = new char[9];
-    private char[] emptyBoard = new char[9];
 
     private void clearBoard() {
         Arrays.fill(board, ' ');
     }
 
     private void printBoard() {
-       if(Arrays.equals(board, emptyBoard)) System.out.println("board is currently empty");
-       else {
-           for (int counter = 1; counter < board.length + 1; ++counter) {
-               System.out.print(board[counter - 1] + " ");
-               if (counter % 3 == 0) System.out.print("\n");
-           }
+            System.out.print(Character.toString( board[0] ) + '|' + board[1] +  '|' + board[2] + '\n'+
+                                           "-----\n"+
+                                           board[3] + '|' + board[4] +  '|' + board[5] + '\n'+
+                                           "-----\n"+
+                                           board[6] + '|' + board[7] +  '|' + board[8] + '\n');
        }
-    }
 
     private boolean checkVictory(char playerChance) {
         return (board[0] == playerChance && board[1] == playerChance && board[2] == playerChance)
@@ -42,6 +39,7 @@ class TicTacToeGame {
                 continue;
             }
             if (checkVictory(((playerChance == 1) ? 'X' : 'O'))) {
+                printBoard();
                 System.out.print("player " + ((playerChance == 1) ? 'X' : 'O') + " has won.\ndo you want to play again ? ('y' or 'n') : ");
                 char command  = Character.toLowerCase(Input.next().charAt(0));
                 if (command == 'y'){
@@ -66,7 +64,6 @@ class TicTacToeGame {
 
     public TicTacToeGame() {
         this.clearBoard();
-        this.emptyBoard = board.clone();
     }
 }
 
